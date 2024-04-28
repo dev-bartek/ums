@@ -15,12 +15,12 @@
                     <th></th>
                 </tr>
                 @foreach($users as $user)
-                <tr class="border-b hover:bg-gray-300 bg-gray-100">
+                <tr wire:key="{{$user->getKey()}}" class="border-b hover:bg-gray-300 bg-gray-100">
                     <td class="p-3 px-5">{{ $user->name }}</td>
                     <td class="p-3 px-5">{{ $user->email }}</td>
                     <td class="p-3 px-5 flex justify-end">
                         <span class="mr-3">
-                            <livewire:edit-user :$user :key="$loop->index.$user->getKey()" />
+                            <livewire:edit-user :$user :key="$user->getKey()" />
                         </span>
                         <x-delete-button
                             :user="$user"

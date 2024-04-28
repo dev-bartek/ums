@@ -83,7 +83,7 @@ class UserForm extends Form
             ])
         );
 
-        $address = Address::create(
+        $user->address()->create(
             array_merge([
                 'address_line_1' => $this->addressLine1,
                 'address_line_2' => $this->addressLine2,
@@ -94,8 +94,6 @@ class UserForm extends Form
                     'postcode',
                 ]))
         );
-
-        $user->address()->save($address);
 
         $this->reset();
     }
